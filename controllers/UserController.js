@@ -41,24 +41,15 @@ const UserController = {
   },
 
   async logoutUser(req, res) {
-    try {
-      const token = req.headers.authorization?.split(" ")[1];
-      if (!token) {
-        return res.status(400).send({ message: "Token no proporcionado" });
-      }
-
-      const user = await User.findById(req.user._id);
-      if (!user) {
-        return res.status(404).send({ message: "Usuario no encontrado" });
-      }
-
-      user.tokens = user.tokens.filter((t) => t !== token);
-      await user.save();
-
+     try {
+      await User.findByIdAndUpdate(req.user._id, {
+        $pull: { tokens: req.headers.authorization },
+      });
       res.send({ message: "Desconectado con éxito" });
     } catch (error) {
-      console.error("Error en logout:", error);
-      res.status(500).send({ message: "Hubo un problema al intentar desconectar al usuario", error: error.message });
+      res.status(500).send({
+        message: "Hubo un problema al intentar desconectar al usuario",
+      });
     }
   },
 };
