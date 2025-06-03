@@ -13,3 +13,5 @@ app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 app.use("/user", require("./routes/user"));
 app.use("/task", require("./routes/task"));
+
+module.exports = app;
