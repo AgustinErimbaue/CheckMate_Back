@@ -86,6 +86,6 @@ Las contribuciones son bienvenidas. Por favor, abre un **issue** o un **pull req
 
 ## Contacto
 
-- Tu Nombre - [tu.email@ejemplo.com](agustibernabe@gmail.com)
-- GitHub: [tu-usuario](https://www.linkedin.com/in/agustinerimbaue/)
-- LinkedIn: [tu-perfil](https://www.linkedin.com/in/tu-perfil/)
+
+- LinkedIn: [tu-usuario](https://www.linkedin.com/in/agustinerimbaue/)
+- GitHub: [tu-perfil](https://www.linkedin.com/in/tu-perfil/)
