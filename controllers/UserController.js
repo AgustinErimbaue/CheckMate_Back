@@ -52,6 +52,19 @@ const UserController = {
       });
     }
   },
+
+  async getUser(req, res) {
+    try {
+      const user = await User.findById(req.user._id).select("-password -tokens");
+      if (!user) {
+        return res.status(404).send({ message: "Usuario no encontrado" });
+      }
+      res.send({ user });
+    } catch (error) {
+      console.error("Error obteniendo usuario:", error);
+      res.status(500).send({ message: "Error al obtener usuario", error: error.message });
+    }   
+  }
 };
 
 module.exports = UserController;
