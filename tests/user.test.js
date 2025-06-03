@@ -73,7 +73,6 @@ describe("testing/logout", () => {
   });
 
   test("Logout a user", async () => {
-     // 1. Login para obtener el token
     const loginRes = await request(app)
       .post("/user/login")
       .send({ email: user.email, password: user.password })
@@ -82,7 +81,6 @@ describe("testing/logout", () => {
        const token = loginRes.body.token;
     expect(token).toBeDefined();
 
-    // 2. Hacer logout usando el token
     const logoutRes = await request(app)
       .delete("/user/logout")
       .set("Authorization", `${token}`)
